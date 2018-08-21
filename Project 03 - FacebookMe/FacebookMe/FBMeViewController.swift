@@ -1,9 +1,3 @@
-//
-//  FBMeViewController.swift
-//  FacebookMe
-//
-//  Copyright © 2017 Yi Gu. All rights reserved.
-//
 
 import UIKit
 
@@ -74,17 +68,14 @@ extension FBMeViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let modelForRow = rowModel(at: indexPath)
     var cell = UITableViewCell()
-    
     guard let title = modelForRow[TableKeys.Title] else {
       return cell
     }
-    
     if title == user.name {
       cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: nil)
     } else {
       cell = tableView.dequeueReusableCell(withIdentifier: FBMeBaseCell.identifier, for: indexPath)
     }
-
     cell.textLabel?.text = title
     
     if let imageName = modelForRow[TableKeys.ImageName] {
@@ -92,11 +83,9 @@ extension FBMeViewController: UITableViewDataSource {
     } else if title != TableKeys.logout {
       cell.imageView?.image = UIImage(named: Specs.imageName.placeholder)
     }
-    
     if title == user.name {
       cell.detailTextLabel?.text = modelForRow[TableKeys.SubTitle]
     }
-    
     return cell
   }
 }
@@ -104,11 +93,9 @@ extension FBMeViewController: UITableViewDataSource {
 extension FBMeViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     let modelForRow = rowModel(at: indexPath)
-    
     guard let title = modelForRow[TableKeys.Title] else {
       return 0.0
     }
-    
     if title == user.name {
       return 64.0
     } else {
@@ -118,11 +105,9 @@ extension FBMeViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     let modelForRow = rowModel(at: indexPath)
-    
     guard let title = modelForRow[TableKeys.Title] else {
       return
     }
-    
     if title == TableKeys.seeMore || title == TableKeys.addFavorites {
       cell.textLabel?.textColor = Specs.color.tint
       cell.accessoryType = .none
