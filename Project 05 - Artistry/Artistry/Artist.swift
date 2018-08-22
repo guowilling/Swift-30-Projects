@@ -23,6 +23,7 @@
 import UIKit
 
 struct Artist {
+  
   let name: String
   let bio: String
   let image: UIImage
@@ -36,7 +37,6 @@ struct Artist {
   }
   
   static func artistsFromBundle() -> [Artist] {
-    
     var artists = [Artist]()
     
     guard let url = Bundle.main.url(forResource: "artists", withExtension: "json") else {
@@ -79,5 +79,4 @@ struct Artist {
     
     return artists
   }
-  
 }

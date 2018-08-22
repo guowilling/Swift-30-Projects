@@ -1,10 +1,3 @@
-//
-//  WorkTableViewCell.swift
-//  Artistry
-//
-//  Created by Yi Gu on 12/22/16.
-//  Copyright © 2016 RayWenderlich. All rights reserved.
-//
 
 import UIKit
 

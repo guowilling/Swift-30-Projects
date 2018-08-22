@@ -41,13 +41,14 @@ class ArtistListViewController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let destination = segue.destination as? ArtistDetailViewController,
-        let indexPath = tableView.indexPathForSelectedRow {
+      let indexPath = tableView.indexPathForSelectedRow {
       destination.selectedArtist = artists[indexPath.row]
     }
   }
 }
 
 extension ArtistListViewController: UITableViewDataSource {
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return artists.count
   }
@@ -74,4 +75,3 @@ extension ArtistListViewController: UITableViewDataSource {
     return cell
   }
 }
-

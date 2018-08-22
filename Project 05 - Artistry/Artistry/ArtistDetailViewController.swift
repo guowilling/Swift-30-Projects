@@ -23,7 +23,7 @@
 import UIKit
 
 class ArtistDetailViewController: UIViewController {
-  
+
   var selectedArtist: Artist!
   
   let moreInfoText = "Select For More Info >"
@@ -44,6 +44,7 @@ class ArtistDetailViewController: UIViewController {
 }
 
 extension ArtistDetailViewController: UITableViewDataSource {
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return selectedArtist.works.count
   }
@@ -72,6 +73,7 @@ extension ArtistDetailViewController: UITableViewDataSource {
 }
 
 extension ArtistDetailViewController: UITableViewDelegate {
+
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? WorkTableViewCell else {
       return
@@ -91,5 +93,3 @@ extension ArtistDetailViewController: UITableViewDelegate {
     tableView.scrollToRow(at: indexPath, at: .top, animated: true)
   }
 }
-
-
