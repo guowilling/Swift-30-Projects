@@ -37,7 +37,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    // MARK: type select
+    // MARK: - Type
     @IBAction func selectChild(_ sender: AnyObject) {
         resetButtons()
         childButton.isSelected = true
@@ -65,7 +65,7 @@ class DetailViewController: UIViewController {
         travelButton.isSelected = false
     }
     
-    // MARK: create or edit a new todo
+    // MARK: - Create or Edit a todo
     @IBAction func tapDone(_ sender: AnyObject) {
         var image = ""
         if childButton.isSelected {

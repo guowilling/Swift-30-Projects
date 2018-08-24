@@ -24,26 +24,6 @@ class ViewController: UIViewController {
         todoTableView.reloadData()
     }
     
-    // MARK - helper func
-    func setMessageLabel(_ messageLabel: UILabel, frame: CGRect, text: String, textColor: UIColor, numberOfLines: Int, textAlignment: NSTextAlignment, font: UIFont) {
-        messageLabel.frame = frame
-        messageLabel.text = text
-        messageLabel.textColor = textColor
-        messageLabel.numberOfLines = numberOfLines
-        messageLabel.textAlignment = textAlignment
-        messageLabel.font = font
-        messageLabel.sizeToFit()
-    }
-    
-    func setCellWithTodoItem(_ cell: UITableViewCell, todo: ToDoItem) {
-        let imageView: UIImageView = cell.viewWithTag(11) as! UIImageView
-        imageView.image = UIImage(named: todo.image)
-        let titleLabel: UILabel = cell.viewWithTag(12) as! UILabel
-        titleLabel.text = todo.title
-        let dateLabel: UILabel = cell.viewWithTag(13) as! UILabel
-        dateLabel.text = stringFromDate(todo.date)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTodo" {
             let detailVC = segue.destination as! DetailViewController
@@ -81,6 +61,7 @@ extension ViewController: UITableViewDelegate {
     // Edit mode
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
+        
         todoTableView.setEditing(editing, animated: true)
     }
     
@@ -100,5 +81,27 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let todo = todos.remove(at: (sourceIndexPath as NSIndexPath).row)
         todos.insert(todo, at: (destinationIndexPath as NSIndexPath).row)
+    }
+}
+
+// MARK: - Helper func
+extension ViewController {
+    fileprivate func setMessageLabel(_ messageLabel: UILabel, frame: CGRect, text: String, textColor: UIColor, numberOfLines: Int, textAlignment: NSTextAlignment, font: UIFont) {
+        messageLabel.frame = frame
+        messageLabel.text = text
+        messageLabel.textColor = textColor
+        messageLabel.numberOfLines = numberOfLines
+        messageLabel.textAlignment = textAlignment
+        messageLabel.font = font
+        messageLabel.sizeToFit()
+    }
+    
+    fileprivate func setCellWithTodoItem(_ cell: UITableViewCell, todo: ToDoItem) {
+        let imageView: UIImageView = cell.viewWithTag(11) as! UIImageView
+        imageView.image = UIImage(named: todo.image)
+        let titleLabel: UILabel = cell.viewWithTag(12) as! UILabel
+        titleLabel.text = todo.title
+        let dateLabel: UILabel = cell.viewWithTag(13) as! UILabel
+        dateLabel.text = stringFromDate(todo.date)
     }
 }

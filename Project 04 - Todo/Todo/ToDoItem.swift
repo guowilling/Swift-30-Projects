@@ -2,6 +2,7 @@
 import Foundation
 
 class ToDoItem: NSObject {
+    
     var id: String
     var image: String
     var title: String
