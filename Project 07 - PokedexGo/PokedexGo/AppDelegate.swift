@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  PokedexGo
-//
-//  Created by Yi Gu on 7/10/16.
-//  Copyright © 2016 yigu. All rights reserved.
-//
 
 import UIKit
 
@@ -12,7 +5,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     let splitViewController = self.window!.rootViewController as! UISplitViewController
